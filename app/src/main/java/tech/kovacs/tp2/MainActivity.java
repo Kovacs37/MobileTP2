@@ -48,6 +48,27 @@ public class MainActivity extends AppCompatActivity {
         poids.addTextChangedListener(textWatcher);
     }
 
+// exercice 1
+    private String interpreteIMC(float imc){
+        String msg="";
+        if(imc<16.5){
+        msg+="famine";
+        }else if (imc>=16.5 && imc<18.5){
+            msg+="maigreur";
+        }else if (imc>=18.5 && imc<25){
+            msg+="corpulence normale";
+        }else if (imc>=25 && imc<30){
+            msg+="surpoids";
+        }else if (imc>=30 && imc<35){
+            msg+="obésité modérée";
+        }else if (imc>=35 && imc<40){
+            msg+="obésité sévère";
+        }else if (imc>=40 ){
+            msg+="obésité morbide ou massive";
+        }
+
+     return msg;
+    }
 
 
     private View.OnClickListener envoyerListener = new View.OnClickListener() {
@@ -73,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     if (group.getCheckedRadioButtonId() == R.id.radio_centimetre) tValue = tValue / 100;
                     float imc = pValue / (tValue * tValue);
                     String resultat="Votre IMC est " + imc+" . ";
-
+                    if(commentaire.isChecked()) resultat += interpreteIMC(imc);
                     result.setText(resultat);
                 }
             }

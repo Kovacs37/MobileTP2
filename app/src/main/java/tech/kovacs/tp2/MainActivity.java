@@ -2,9 +2,11 @@ package tech.kovacs.tp2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -44,9 +46,17 @@ public class MainActivity extends AppCompatActivity {
         envoyer.setOnClickListener(envoyerListener);
         reset.setOnClickListener(resetListener);
         commentaire.setOnClickListener(checkedListener);
-        taille.addTextChangedListener(textWatcher);
-        poids.addTextChangedListener(textWatcher);
+        //taille.addTextChangedListener(textWatcher);
+        //poids.addTextChangedListener(textWatcher);
+        taille.setOnKeyListener(modifListener);
+        poids.setOnKeyListener(modifListener);
+
     }
+
+
+
+
+
 
 // exercice 1
     private String interpreteIMC(float imc){
@@ -121,7 +131,10 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private TextWatcher textWatcher = new TextWatcher() {
+
+
+
+            private TextWatcher textWatcher = new TextWatcher() {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -133,9 +146,24 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {}
+
+
+
+
+
     };
 
+    // Se lance à chaque fois qu'on appuie sur une touche en étant sur un EditText
 
+    //  on pourrait detecter si un point est écrit et dans ce cas on bascule en mode decimale
+    private View.OnKeyListener modifListener = new View.OnKeyListener() {
+        @Override
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            // On remet le texte à sa valeur par défaut
+            result.setText(texteInit);
+            return false;
+        }
+    };
 
 
 

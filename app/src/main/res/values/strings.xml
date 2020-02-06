@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">TP2</string>
+    <string name="Xlow">famine</string>
+    <string name="low">maigreur</string>
+    <string name="r_sultat">resultat</string>
+    <string name="large">enrobé</string>
+    <string name="normal">normale</string>
+    <string name="fat">obésité modérée</string>
+    <string name="fatter">obésité grave</string>
+    <string name="enormous">obésité morbide</string>
+    <string name="weightText">determiner votre poids</string>
+    <string name="weight">poids :</string>
+    <string name="highnessText">Determiner votre taille</string>
+    <string name="highness">"taille : "</string>
+    <string name="meter">metre</string>
+    <string name="centimeter">centimètre</string>
+    <string name="appr">appréciation</string>
+    <string name="textResult">cliquez pour obtenir un restulat</string>
+    <string name="calculate">calculer l\'IMC</string>
+    <string name="reset">reset</string>
+    <string name="positiveWeight">le poids doit être posidit</string>
+    <string name="positiveHighness">la taille doit être positive</string>
+    <string name="buttonClick">cliquez sur le bouton</string>
+    <string name="yourIMCis">Votre IMC est</string>
 </resources>

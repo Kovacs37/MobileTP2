@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP2</string>
+    <string name="buttonClick">clic sul cazzo</string>
+    <string name="appr">apprezzamento</string>
+    <string name="Xlow">carestia</string>
+    <string name="calculate">calcolare l\'IMC</string>
+    <string name="centimeter">centimetro</string>
+    <string name="enormous">oblio morbosamente</string>
+    <string name="fat">obesita moderata</string>
+    <string name="fatter">grave obesita</string>
+    <string name="highness">"taglia : "</string>
+    <string name="highnessText">determina la tua taglia</string>
+    <string name="large">sovrappeso</string>
+    <string name="low">magrezza</string>
+    <string name="meter">metro</string>
+    <string name="normal">normale</string>
+    <string name="positiveHighness">taglia deve essere positiva</string>
+    <string name="positiveWeight">peso deve essere positivo</string>
+    <string name="r_sultat">resultato</string>
+    <string name="reset">reset</string>
+    <string name="textResult">è necessario fare clic sul pulsante per ottenere un risultato</string>
+    <string name="weight">peso :</string>
+    <string name="weightText">determina il tuo peso :</string>
+    <string name="yourIMCis">il tuo IMC è</string>
+</resources>

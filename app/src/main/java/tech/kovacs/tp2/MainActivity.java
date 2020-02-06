@@ -24,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
     CheckBox commentaire = null;
     RadioGroup group = null;
     TextView result = null;
-    private final String texteInit = "Cliquez sur le bouton « Calculer l'IMC » pour obtenir un résultat.";
+    private String texteInit = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        texteInit = getString(R.string.buttonClick);
 // On récupère toutes les vues dont on a besoin
         envoyer = (Button)findViewById(R.id.calcul);
         reset = (Button)findViewById(R.id.reset);
@@ -61,21 +61,13 @@ public class MainActivity extends AppCompatActivity {
 // exercice 1
     private String interpreteIMC(float imc){
         String msg="";
-        if(imc<16.5){
-        msg+="famine";
-        }else if (imc>=16.5 && imc<18.5){
-            msg+="maigreur";
-        }else if (imc>=18.5 && imc<25){
-            msg+="corpulence normale";
-        }else if (imc>=25 && imc<30){
-            msg+="surpoids";
-        }else if (imc>=30 && imc<35){
-            msg+="obésité modérée";
-        }else if (imc>=35 && imc<40){
-            msg+="obésité sévère";
-        }else if (imc>=40 ){
-            msg+="obésité morbide ou massive";
-        }
+        if(imc<16.5) msg += getString(R.string.Xlow);
+        else if (imc>=16.5 && imc<18.5) msg += getString(R.string.low);
+        else if (imc>=18.5 && imc<25) msg += getString(R.string.normal);
+        else if (imc>=25 && imc<30) msg += getString(R.string.large);
+        else if (imc>=30 && imc<35) msg += getString(R.string.fat);
+        else if (imc>=35 && imc<40) msg += getString(R.string.fatter);
+        else if (imc>=40 ) msg += getString(R.string.enormous);
 
      return msg;
     }
@@ -93,17 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
             // Puis on vérifie que la taille est cohérente
             if(tValue <= 0)
-                Toast.makeText(MainActivity.this, "La taille doit être positive", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.positiveHighness, Toast.LENGTH_SHORT).show();
             else {
                 float pValue = Float.valueOf(p);
                 if(pValue <= 0)
-                    Toast.makeText(MainActivity.this, "Le poids doit etre positif", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.positiveWeight, Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
                     if (group.getCheckedRadioButtonId() == R.id.radio_centimetre) tValue = tValue / 100;
                     float imc = pValue / (tValue * tValue);
-                    String resultat="Votre IMC est " + imc+" . ";
+                    String resultat=getString(R.string.yourIMCis) + imc+" . ";
                     if(commentaire.isChecked()) resultat += interpreteIMC(imc);
                     result.setText(resultat);
                 }
